@@ -9,6 +9,14 @@ const port = process.env.port || 3000
 
 app.use(express.json())
 
+//For avoidong Heroku $PORT error
+app.get('/', function(req, response) {
+    var result = 'App is running'
+    response.send(result);
+}).listen(app.get('port'), function() {
+    console.log('App is running, server is listening on port ', app.get('port'));
+});
+
 
 // Devices
 app.post('/devices', (req, res) => {
