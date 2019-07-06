@@ -44,7 +44,6 @@ app.get('/devices/:id', (req, res) => {
 })
 
 
-
 // Readings
 app.post('/readings', (req, res) => {
     const reading = new Reading(req.body)
