@@ -5,7 +5,7 @@ const Device = require('./models/device')
 const Reading = require('./models/reading')
 
 const app = express()
-const port = process.env.port || '0.0.0.0'
+// const port = process.env.PORT || 3000
 
 app.use(express.json())
 
@@ -109,8 +109,10 @@ app.get('/readings/deviceID/:deviceID/createdAt/:createdAt', (req, res) => {
 })
 
 
-app.listen(port, () => {
-    console.log('server is up on port ' + port)
-})
+// app.listen(port, () => {
+//     console.log('server is up on port ' + port)
+// })
+
+app.listen(process.env.PORT, '0.0.0.0')
 
 
