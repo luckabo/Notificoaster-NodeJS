@@ -5,7 +5,7 @@ const Device = require('./models/device')
 const Reading = require('./models/reading')
 
 const app = express()
-const port = process.env.port || 3000
+const port = process.env.port || '0.0.0.0'
 
 app.use(express.json())
 
