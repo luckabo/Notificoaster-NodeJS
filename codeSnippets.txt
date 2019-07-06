@@ -1,0 +1,98 @@
+// CRUD create read update delete
+// const mongodb = require('mongodb')
+// const MongoClient = mongodb.MongoClient
+// const ObjectID = mongodb.ObjectID
+
+const { MongoClient, ObjectID } = require('mongodb')
+
+const connectionURL = 'mongodb://127.0.0.1:27017'
+const databaseName = 'notificoaster'
+
+const id = new ObjectID()
+console.log(id)
+console.log(id.getTimestamp())
+
+MongoClient.connect(connectionURL, { useNewUrlParser: true }, (error, client) => {
+    if (error) {
+        return console.log('Unable to connect to database')
+    }
+
+    const db = client.db(databaseName)
+
+    // db.collection('devices').insertOne({
+    //     deviceID: 'NOTIF-A-SIM01',
+    //     email: 'hetland.scott@gmail.com'
+    // }, (error, result) => {
+    //     if (error) {
+    //         return console.log('Unable to insert device')
+    //     }
+
+    //     console.log(result.ops)
+    // })
+
+    // db.collection('devices').insertMany([
+    //     {
+    //         deviceID: 'TEST1',
+    //         email: 'test1@gmail.com'
+    //     },
+    //     {
+    //         deviceID: 'TEST2',
+    //         email: 'test2@gmail.com'
+    //     }
+    // ], (error, result) => {
+    //     if (error) {
+    //         return console.log('Unable to insert device')
+    //     }
+
+    //     console.log(result.ops)
+    // })
+
+
+    // db.collection('reading').insertMany([
+    //     {
+    //         deviceID: 'NOTIF-A-SIM01',
+    //         temp: 15
+    //     },
+    //     {
+    //         deviceID: 'NOTIF-A-SIM01',
+    //         temp: 14
+    //     },
+    //     {
+    //         deviceID: 'NOTIF-A-SIM01',
+    //         temp: 13
+    //     },
+    //     {
+    //         deviceID: 'NOTIF-A-SIM01',
+    //         temp: 10
+    //     }
+    // ], (error, result) => {
+    //     if (error) {
+    //         return console.log('there is an error')
+    //     }
+
+    //     console.log(result.ops)
+    // })
+
+        // db.collection('devices').findOne({ deviceID: 'NOTIF-A-SIM01' }, (error, device) => {
+    //     if (error) {
+    //         return console.log('error')
+    //     }
+    //     console.log(device)
+    // })
+
+    // db.collection('devices').findOne({ _id: new ObjectID("5d1fb6cb5f1c17260c8d7b6a") }, (error, device) => {
+    //     if (error) {
+    //         return console.log('error')
+    //     }
+    //     console.log(device)
+    // })
+
+
+    // db.collection('readings').find({ deviceID: "NOTIF-A-SIM01" }).toArray((error, reading) => {
+    //     if (error) {
+    //         return console.log('error')
+    //     }
+    //     console.log(reading)
+    // })
+
+})
