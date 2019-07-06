@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-mongoose.connect('mongodb://127.0.0.1:27017/notificoaster-api', {
+mongoose.connect('mongodb://user:password1@ds247827.mlab.com:47827/heroku_29r51ncj', {
     useNewUrlParser: true,
     useCreateIndex: true
 })
