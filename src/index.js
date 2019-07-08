@@ -47,11 +47,13 @@ app.get('/devices/:id', (req, res) => {
 // Readings
 app.post('/readings', (req, res) => {
     const reading = new Reading(req.body)
-
+    console.log('henlo')
     console.log(req)
 
     reading.save().then(() => {
-        res.status(201).send(reading)
+        // res.status(201).send(reading)
+        res.send(reading)
+
     }).catch((e) => {
         res.status(400).send(e)
     })
