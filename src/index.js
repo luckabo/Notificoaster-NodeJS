@@ -48,6 +48,8 @@ app.get('/devices/:id', (req, res) => {
 app.post('/readings', (req, res) => {
     const reading = new Reading(req.body)
 
+    console.log(req)
+
     reading.save().then(() => {
         res.status(201).send(reading)
     }).catch((e) => {
@@ -91,6 +93,12 @@ app.get('/readings/deviceID/:deviceID', (req, res) => {
     })
 })
 
+// Testing endpoint
+app.post('/testing', (req, res) => {
+    console.log(req)
+    res.send('testing')
+})
+
 // Readings by device id and before timestamp
 app.get('/readings/deviceID/:deviceID/createdAt/:createdAt', (req, res) => {
     const _deviceID = req.params.deviceID
@@ -108,11 +116,8 @@ app.get('/readings/deviceID/:deviceID/createdAt/:createdAt', (req, res) => {
     })
 })
 
-
+app.listen(process.env.PORT, '0.0.0.0')
 // app.listen(port, () => {
 //     console.log('server is up on port ' + port)
 // })
-
-app.listen(process.env.PORT, '0.0.0.0')
-
 
