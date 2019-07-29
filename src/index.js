@@ -5,7 +5,6 @@ const Device = require('./models/device')
 const Reading = require('./models/reading')
 
 const app = express()
-// const port = process.env.PORT || 3000
 
 app.use(express.json())
 
@@ -47,13 +46,9 @@ app.get('/devices/:id', (req, res) => {
 // Readings
 app.post('/readings', (req, res) => {
     const reading = new Reading(req.body)
-    console.log('henlo')
-    console.log(req)
 
     reading.save().then(() => {
-        // res.status(201).send(reading)
-        res.send(reading)
-
+        res.status(201).send(reading)
     }).catch((e) => {
         res.status(400).send(e)
     })
@@ -118,8 +113,9 @@ app.get('/readings/deviceID/:deviceID/createdAt/:createdAt', (req, res) => {
     })
 })
 
-app.listen(process.env.PORT, '0.0.0.0')
-// app.listen(port, () => {
-//     console.log('server is up on port ' + port)
-// })
+// app.listen(process.env.PORT, '0.0.0.0')
+const port = process.env.PORT || 3000
+app.listen(port, () => {
+    console.log('server is up on port ' + port)
+})
 
