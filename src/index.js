@@ -8,8 +8,8 @@ app.use(express.json())
 app.use(userRouter)
 app.use(readingRouter)
 
-// app.listen(process.env.PORT, '0.0.0.0')
-const port = process.env.PORT || 3000
-app.listen(port, () => {
-    console.log('server is up on port ' + port)
-})
+app.listen(process.env.PORT, '0.0.0.0')
+// const port = process.env.PORT || 3000
+// app.listen(port, () => {
+//     console.log('server is up on port ' + port)
+// })
