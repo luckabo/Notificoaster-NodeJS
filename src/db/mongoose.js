@@ -1,6 +1,8 @@
 const mongoose = require('mongoose')
+const dotenv = require('dotenv')
+dotenv.config()
 
-mongoose.connect('mongodb://user:password1@ds247827.mlab.com:47827/heroku_29r51ncj', {
+mongoose.connect(process.env.MONGODB_KEY, {
     useNewUrlParser: true,
     useCreateIndex: true
 })

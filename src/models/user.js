@@ -50,17 +50,6 @@ userSchema.statics.findByCredentials = async (email, password) => {
     return user
 }
 
-// userSchema.statics.findDevice = async (deviceID) => {
-//     const user = await User.findOne({ deviceID: deviceID })
-
-//     if (!user) {
-//         throw new Error('No device associated')
-//     }
-
-
-//     return user
-// }
-
 userSchema.pre('save', async function (next) {
     const user = this
 

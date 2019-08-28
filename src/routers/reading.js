@@ -50,7 +50,6 @@ router.get('/readings/deviceID/:deviceID', (req, res) => {
     })
 })
 
-// Readings by device id and before timestamp
 router.get('/readings/deviceID/:deviceID/createdAt/:createdAt', (req, res) => {
     const _deviceID = req.params.deviceID
     const _createdAt = req.params.createdAt
