@@ -15,6 +15,7 @@
     "express": "^4.16.4",
     "mongodb": "^3.1.10",
     "mongoose": "^5.3.16",
+    "node-pushnotifications": "^1.1.12",
     "validator": "^10.9.0"
   },
   "devDependencies": {

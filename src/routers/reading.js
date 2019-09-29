@@ -1,5 +1,7 @@
 const express = require('express')
 const Reading = require('../models/reading')
+const User = require('../models/user')
+const pushNotification = require('../pushNotification')
 const router = new express.Router()
 
 router.post('/readings', async (req, res) => {
@@ -10,6 +12,19 @@ router.post('/readings', async (req, res) => {
         res.status(201).send(reading)
     } catch (e) {
         res.status(400).send(e)
+    }
+
+    try {
+        // Find the user associated with the device and check to see if the reading is below the target temperature if so send a push notification
+        const user = await User.findByDeviceID(req.body['deviceID'])
+        const temperature = reading['temp']
+        if (user['targetTemperature'] > temperature) {
+            const deviceToken = user['phoneID']
+            pushNotification.send(deviceToken, temperature)
+        }
+
+    } catch (e) {
+        console.log('No associated user')
     }
 })
 
